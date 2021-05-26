@@ -1,0 +1,29 @@
+@import '../../../index.scss';
+
+ul {
+  display: flex;
+}
+
+ul li {
+  display: inline-block;
+  text-align: center;
+  list-style: none;
+}
+
+li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.home {
+  margin-right: auto;
+}
+
+// pseudo classes
+ul li:not(:last-child) {
+  padding-right: 24px;
+}
+
+li a:hover {
+  color: $brown;
+}

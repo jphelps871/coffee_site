@@ -1,5 +1,39 @@
-$color: blue;
+@import '../../index';
 
 header {
-  background: $color;
+  background-color: $gold;
+}
+
+.header-responsive {
+  align-items: center;
+  display: grid;
+  row-gap: 16px;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.nav {
+  grid-row: 2/3;
+  grid-column: 1/-1;
+}
+
+.cart {
+  margin-left: auto;
+  grid-row: 1;
+  grid-column: 2/-1;
+}
+
+@media only screen and (min-width: 600px) {
+  .header-responsive {
+    display: flex;
+  }
+
+  .nav {
+    padding: 0 24px;
+    width: 100%;
+  }
 }

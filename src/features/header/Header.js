@@ -1,17 +1,22 @@
 import './header.scss';
-// import Cart from './cart/Cart';
-// import Nav from './nav/Nav';
+import Nav from './nav/Nav';
 import logo from './assets/logo.svg';
+import { Link } from 'react-router-dom';
+import Cart from './cart/Cart';
 
 export default function Header() {
   return (
     <header>
-      <div id="logo-cart-container">
+      <div className="wrapper header-responsive">
         <div id="logo">
           <img src={logo} alt="logo" />
-          {/* <Cart /> */}
         </div>
-        {/* <Nav /> */}
+        <div className="nav">
+          <Nav />
+        </div>
+        <Link className="cart" to="/cart">
+          <Cart />
+        </Link>
       </div>
     </header>
   );
