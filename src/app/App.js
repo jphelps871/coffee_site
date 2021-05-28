@@ -1,7 +1,7 @@
 import './App.scss';
 import Header from '../features/header/Header';
-import Signup from '../features/signup/Signup';
-import Login from '../features/login/Login';
+import Signup from '../features/form/signup/Signup';
+import Login from '../features/form/login/Login';
 import Home from '../features/home/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 

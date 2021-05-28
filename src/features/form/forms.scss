@@ -1,0 +1,19 @@
+@import '../../index.scss';
+
+form {
+  margin: auto;
+  max-width: 700px;
+  padding: 24px;
+}
+
+.input-feild {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    font-size: 14px;
+    padding: 8px;
+    border: 2px solid $brown;
+    border-radius: 4px;
+  }
+}
