@@ -22,16 +22,13 @@ export const createUser = createAsyncThunk(
 export const formSlice = createSlice({
   name: 'form',
   initialState: {
-    response: {},
     status: '',
-    error: {},
+    success: {},
+    error: [],
   },
 
-  reducers: {
-    signUpReducer: (state, action) => {
-      state.value = action.payload;
-    },
-  },
+  reducers: {},
+
   extraReducers: {
     [createUser.pending]: (state) => {
       state.status = 'loading';
@@ -46,8 +43,6 @@ export const formSlice = createSlice({
     },
   },
 });
-
-export const selectUserValue = (state) => state.form.response;
 
 export const { signUpReducer, loginReducer } = formSlice.actions;
 

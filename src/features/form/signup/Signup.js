@@ -1,18 +1,12 @@
 import '../forms.scss';
 import Input from '../../../common/Input';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { createUser, selectUserValue } from '../formSlice';
+import { useDispatch /* useSelector */ } from 'react-redux';
+import { createUser } from '../formSlice';
 
 export default function SignUp() {
   const dispatch = useDispatch();
-  const userCreatedResponse = useSelector(selectUserValue);
-  const { status } = useSelector((state) => state.form);
-  const { error } = useSelector((state) => state.form);
-
-  console.log(userCreatedResponse);
-  console.log(status);
-  console.log(error);
+  // const { status, error, success } = useSelector((state) => state.form);
 
   const [user, setUser] = useState({
     email: '',
