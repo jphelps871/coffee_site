@@ -16,6 +16,11 @@ header {
   padding-bottom: 24px;
 }
 
+#logo {
+  display: flex;
+  align-items: center;
+}
+
 .nav {
   grid-row: 2/3;
   grid-column: 1/-1;
