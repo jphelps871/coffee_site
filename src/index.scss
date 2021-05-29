@@ -1,6 +1,8 @@
 // colors
 $gold: #e1bb78;
 $brown: #895140;
+$blue: #18116c;
+$border_radius: 4px;
 
 * {
   padding: 0;
@@ -21,6 +23,26 @@ h2 {
   line-height: 48px;
 
   margin-bottom: 24px;
+}
+
+button {
+  cursor: pointer;
+  border-radius: $border_radius;
+  border: 1px solid transparent;
+  margin-top: 24px;
+
+  padding: 12px;
+  line-height: 17px;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  font-weight: bold;
+  font-size: 14px;
+}
+
+button:hover {
+  opacity: 0.7;
 }
 
 .wrapper {

@@ -4,21 +4,28 @@ form {
   margin: auto;
   max-width: 700px;
   padding: 24px;
+
+  button {
+    width: 100%;
+    background-color: $blue;
+    color: white;
+  }
 }
 
 .input-feild {
   display: flex;
   flex-direction: column;
+  margin-bottom: 16px;
 
   input {
     font-size: 14px;
-    padding: 8px;
-    border: 2px solid $brown;
-    border-radius: 4px;
+    padding: 12px;
+    border: 2px solid $blue;
+    border-radius: $border_radius;
   }
 
   p {
     font-size: 12px;
-    color: red;
+    color: tomato;
   }
 }

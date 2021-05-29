@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-export default function Input({ name, onInputChange }) {
+export default function Input({ display, name, onInputChange }) {
   const { error, status } = useSelector((state) => state.form);
 
   const filteredErrors = () => {
@@ -21,7 +21,7 @@ export default function Input({ name, onInputChange }) {
 
   return (
     <div className="input-feild">
-      <label htmlFor={name}>{name}</label>
+      <label htmlFor={name}>{display}</label>
       <input
         name={name}
         type="text"

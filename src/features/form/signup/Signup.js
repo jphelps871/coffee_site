@@ -31,15 +31,29 @@ export default function SignUp() {
           and last name
         </p>
       </article>
-      <Input name="email" onInputChange={(e) => handleInputChange(e)} />
-      <Input name="password" onInputChange={(e) => handleInputChange(e)} />
-      <Input name="firstName" onInputChange={(e) => handleInputChange(e)} />
-      <Input name="lastName" onInputChange={(e) => handleInputChange(e)} />
-      <input
-        onClick={() => dispatch(createUser(user))}
-        type="submit"
-        value="Submit"
+      <Input
+        name="email"
+        display="email"
+        onInputChange={(e) => handleInputChange(e)}
       />
+      <Input
+        name="password"
+        display="password"
+        onInputChange={(e) => handleInputChange(e)}
+      />
+      <Input
+        name="firstName"
+        display="first name"
+        onInputChange={(e) => handleInputChange(e)}
+      />
+      <Input
+        name="lastName"
+        display="last name"
+        onInputChange={(e) => handleInputChange(e)}
+      />
+      <button onClick={() => dispatch(createUser(user))} type="submit">
+        Sign Up
+      </button>
     </form>
   );
 }
