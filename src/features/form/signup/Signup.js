@@ -54,6 +54,9 @@ export default function SignUp() {
       <button onClick={() => dispatch(createUser(user))} type="submit">
         Sign Up
       </button>
+      <p>
+        If you already have an account <a>login here</a>{' '}
+      </p>
     </form>
   );
 }

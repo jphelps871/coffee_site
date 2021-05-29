@@ -1,6 +1,8 @@
+import { config } from '../config';
+
 export const client = {
   register: (bodyData) => {
-    return fetch('https://fast-lake-76721.herokuapp.com/api/user/register', {
+    return fetch(`${config.API_URL_USER}/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
