@@ -11,7 +11,7 @@ export default function Input({ display, name, onInputChange }) {
   const stlyeFilteredErrors = () => {
     if (status === '' || status === 'loading') return;
     return filteredErrors().length !== 0
-      ? { borderColor: 'red' }
+      ? { borderColor: 'tomato' }
       : { borderColor: 'green' };
   };
 

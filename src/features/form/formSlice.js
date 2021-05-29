@@ -4,10 +4,9 @@ import { client } from '../../api/client';
 export const createUser = createAsyncThunk(
   'form/signUpReducer',
   async (userCredentials, { rejectWithValue }) => {
-    const url = 'https://fast-lake-76721.herokuapp.com/api/user/register';
     const userCredentialsJson = JSON.stringify(userCredentials);
     try {
-      const response = await client.post(url, userCredentialsJson);
+      const response = await client.register(userCredentialsJson);
       const json = await response.json();
 
       if (json.errors) throw json.errors;

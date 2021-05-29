@@ -1,6 +1,6 @@
 export const client = {
-  post: (url, bodyData) => {
-    return fetch(url, {
+  register: (bodyData) => {
+    return fetch('https://fast-lake-76721.herokuapp.com/api/user/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
