@@ -11,7 +11,7 @@ export const createUser = createAsyncThunk(
 
       if (json.errors) throw json.errors;
 
-      return json.message;
+      return json;
     } catch (error) {
       return rejectWithValue(error);
     }
@@ -22,7 +22,7 @@ export const formSlice = createSlice({
   name: 'form',
   initialState: {
     status: '',
-    success: {},
+    success: '',
     error: [],
   },
 
@@ -34,7 +34,7 @@ export const formSlice = createSlice({
     },
     [createUser.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.response = action.payload;
+      state.success = action.payload;
     },
     [createUser.rejected]: (state, action) => {
       state.status = 'failed';

@@ -1,12 +1,13 @@
 import '../forms.scss';
 import Input from '../../../common/Input';
+import Loader from '../../../common/Loader';
 import React, { useState } from 'react';
-import { useDispatch /* useSelector */ } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createUser } from '../formSlice';
 
 export default function SignUp() {
   const dispatch = useDispatch();
-  // const { status, error, success } = useSelector((state) => state.form);
+  const { success, status } = useSelector((state) => state.form);
 
   const [user, setUser] = useState({
     email: '',
@@ -21,6 +22,8 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
+
+  if (success) return <h2 className="wrapper">Success</h2>;
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
@@ -51,12 +54,16 @@ export default function SignUp() {
         display="last name"
         onInputChange={(e) => handleInputChange(e)}
       />
-      <button onClick={() => dispatch(createUser(user))} type="submit">
-        Sign Up
+      <button
+        onClick={() => dispatch(createUser(user))}
+        type="submit"
+        style={
+          status === 'loading' ? { pointerEvents: 'none', opacity: '0.4' } : {}
+        }
+      >
+        Sign Up {status === 'loading' ? <Loader /> : ''}
       </button>
-      <p>
-        If you already have an account <a>login here</a>{' '}
-      </p>
+      <p>If you already have an account 'login here'</p>
     </form>
   );
 }

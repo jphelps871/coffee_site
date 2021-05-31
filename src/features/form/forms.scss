@@ -6,8 +6,13 @@ form {
   padding: 24px;
 
   button {
+    // pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     background-color: $blue;
+    // opacity: 0.4;
     color: white;
   }
 }

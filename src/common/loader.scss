@@ -1,0 +1,40 @@
+$border-size: 3px;
+
+.loader-spinner {
+  margin: 0 1em;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.loader-spinner div {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: $border-size solid transparent;
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spinner-one 1s linear infinite;
+}
+
+.loader-spinner div:nth-child(2) {
+  border: $border-size solid transparent;
+  border-bottom-color: white;
+}
+
+@keyframes spinner-one {
+  0% {
+    transform: rotate(0deg);
+    border-width: $border-size;
+  }
+  50% {
+    transform: rotate(180deg);
+    border-width: 1px;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-width: $border-size;
+  }
+}
