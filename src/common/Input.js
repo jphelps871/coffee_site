@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 
-export default function Input({ display, name, onInputChange }) {
-  const { error, status } = useSelector((state) => state.form);
+export default function Input({ onInputChange, server, type }) {
+  const { error, status } = server;
+  const { name, display } = type;
 
   const filteredErrors = () => {
     return error.filter((message) => message.param === name);

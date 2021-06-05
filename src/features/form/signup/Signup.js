@@ -3,11 +3,11 @@ import Input from '../../../common/Input';
 import Loader from '../../../common/Loader';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createUser } from '../formSlice';
+import { createUser } from './signupSlice';
 
 export default function SignUp() {
   const dispatch = useDispatch();
-  const { success, status } = useSelector((state) => state.form);
+  const { status, error, success } = useSelector((state) => state.signup);
 
   const [user, setUser] = useState({
     email: '',
@@ -35,23 +35,23 @@ export default function SignUp() {
         </p>
       </article>
       <Input
-        name="email"
-        display="email"
+        server={{ status, error }}
+        type={{ name: 'email', display: 'email' }}
         onInputChange={(e) => handleInputChange(e)}
       />
       <Input
-        name="password"
-        display="password"
+        server={{ status, error }}
+        type={{ name: 'password', display: 'password' }}
         onInputChange={(e) => handleInputChange(e)}
       />
       <Input
-        name="firstName"
-        display="first name"
+        server={{ status, error }}
+        type={{ name: 'firstName', display: 'first name' }}
         onInputChange={(e) => handleInputChange(e)}
       />
       <Input
-        name="lastName"
-        display="last name"
+        server={{ status, error }}
+        type={{ name: 'lastName', display: 'last name' }}
         onInputChange={(e) => handleInputChange(e)}
       />
       <button

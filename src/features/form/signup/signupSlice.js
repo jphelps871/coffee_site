@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { client } from '../../api/client';
+import { client } from '../../../api/client';
 
 export const createUser = createAsyncThunk(
   'form/signUpReducer',
@@ -7,13 +7,14 @@ export const createUser = createAsyncThunk(
     const userCredentialsJson = JSON.stringify(userCredentials);
     try {
       const response = await client.register(userCredentialsJson);
+
+      if (!response.ok) throw response;
+
       const json = await response.json();
-
-      if (json.errors) throw json.errors;
-
       return json;
     } catch (error) {
-      return rejectWithValue(error);
+      const message = await error.json();
+      return rejectWithValue(message);
     }
   },
 );
