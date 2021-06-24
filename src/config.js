@@ -1,11 +1,14 @@
+const LOCALHOST = 'http://localhost:3001/api';
+const HEROKU = 'https://fast-lake-76721.herokuapp.com/api';
+
 const development = {
-  API_URL: 'http://localhost:3001/api',
-  API_URL_USER: 'http://localhost:3001/api/user',
+  API_URL_USER: `${LOCALHOST}/user`,
+  API_ACCOUNT: `${LOCALHOST}/account`,
 };
 
 const production = {
-  API_URL: 'https://fast-lake-76721.herokuapp.com/api',
-  API_URL_USER: 'https://fast-lake-76721.herokuapp.com/api/user',
+  API_URL_USER: `${HEROKU}/user`,
+  API_ACCOUNT: `${HEROKU}/account`,
 };
 
 export const config =

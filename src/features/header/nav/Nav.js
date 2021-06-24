@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './nav.scss';
 
 export default function Nav() {
   const [active, setActive] = useState('/');
+
+  const { loggedIn } = useSelector((state) => state.auth);
 
   const handleClick = (e) => setActive(e.target.getAttribute('href'));
 
@@ -20,14 +23,20 @@ export default function Nav() {
         </li>
 
         <li onClick={(e) => handleClick(e)}>
-          <Link style={test('/signup')} to="/signup">
-            sign up
-          </Link>
+          {loggedIn ? (
+            <Link style={test('/account')} to="/account">
+              my account
+            </Link>
+          ) : (
+            <Link style={test('/login')} to="/login">
+              login
+            </Link>
+          )}
         </li>
 
         <li onClick={(e) => handleClick(e)}>
-          <Link style={test('/login')} to="/login">
-            login
+          <Link style={test('/signup')} to="/signup">
+            sign up
           </Link>
         </li>
       </ul>

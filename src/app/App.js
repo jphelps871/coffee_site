@@ -3,9 +3,19 @@ import Header from '../features/header/Header';
 import Signup from '../features/form/signup/Signup';
 import Login from '../features/form/login/Login';
 import Home from '../features/home/Home';
+import Account from '../features/account/Account';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { authRequest } from '../reducers/authSlice';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function App() {
+  const dispatch = useDispatch();
+  const { success } = useSelector((state) => state.login);
+
+  useEffect(() => dispatch(authRequest()), [dispatch, success]);
+
   return (
     <div className="App">
       <Router>
@@ -16,6 +26,9 @@ export default function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/account">
+            <Account />
           </Route>
           <Route path="/">
             <Home />

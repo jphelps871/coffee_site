@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { client } from '../../../api/client';
+import { auth } from '../../../api/auth';
 
 export const createUser = createAsyncThunk(
   'form/signUpReducer',
   async (userCredentials, { rejectWithValue }) => {
     const userCredentialsJson = JSON.stringify(userCredentials);
     try {
-      const response = await client.register(userCredentialsJson);
+      const response = await auth.register(userCredentialsJson);
 
       if (!response.ok) throw response;
 
@@ -19,7 +19,7 @@ export const createUser = createAsyncThunk(
   },
 );
 
-export const formSlice = createSlice({
+const formSlice = createSlice({
   name: 'form',
   initialState: {
     status: '',
@@ -43,7 +43,5 @@ export const formSlice = createSlice({
     },
   },
 });
-
-export const { signUpReducer, loginReducer } = formSlice.actions;
 
 export default formSlice.reducer;
