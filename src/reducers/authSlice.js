@@ -16,6 +16,13 @@ export const authRequest = createAsyncThunk(
   },
 );
 
+export const logout = createAsyncThunk('auth/logout', async (data, { rejectWithValue }) => {
+  const response = await auth.logout();
+  const jsonData = await response.json();
+  if (jsonData.status !== 200) return rejectWithValue(jsonData.message);
+  return jsonData.message;
+});
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
@@ -26,10 +33,18 @@ const authSlice = createSlice({
   reducers: {},
 
   extraReducers: (builder) => {
+    /* For authorization of app */
     builder.addCase(authRequest.fulfilled, (state) => {
       state.loggedIn = true;
     });
+
     builder.addCase(authRequest.rejected, (state, action) => {
+      state.loggedIn = false;
+      state.message = action.payload;
+    });
+
+    /* Logout */
+    builder.addCase(logout.fulfilled, (state, action) => {
       state.loggedIn = false;
       state.message = action.payload;
     });

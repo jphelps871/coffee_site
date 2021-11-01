@@ -20,6 +20,16 @@ export const auth = {
     return fetch(`${config.API_URL_USER}/login`, formOptions(bodyData));
   },
 
+  logout: () => {
+    return fetch(`${config.API_URL_USER}/logout`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  },
+
   loggedIn: () => {
     return fetch(`${config.API_ACCOUNT}`, {
       credentials: 'include',

@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './nav.scss';
 
+import { logout } from '../../../reducers/authSlice';
+
 export default function Nav() {
+  /* Set links to active when use is oon the page */
   const [active, setActive] = useState('/');
 
-  const { loggedIn } = useSelector((state) => state.auth);
-
+  /* Turn link active */
   const handleClick = (e) => setActive(e.target.getAttribute('href'));
 
   const test = (link) =>
     active === link ? { fontWeight: '800' } : { fontWeight: 'inherit' };
+
+  /* Give and take user authorization  */
+  const { loggedIn } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
 
   return (
     <nav>
@@ -34,11 +41,17 @@ export default function Nav() {
           )}
         </li>
 
-        <li onClick={(e) => handleClick(e)}>
-          <Link style={test('/signup')} to="/signup">
-            sign up
-          </Link>
-        </li>
+        {loggedIn ? (
+          <li>
+            <a onClick={() => dispatch(logout())}>logout</a>
+          </li>
+        ) : (
+          <li onClick={(e) => handleClick(e)}>
+            <Link style={test('/signup')} to="/signup">
+              sign up
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );
