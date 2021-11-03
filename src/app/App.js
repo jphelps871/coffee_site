@@ -4,6 +4,7 @@ import Signup from '../features/form/signup/Signup';
 import Login from '../features/form/login/Login';
 import Home from '../features/home/Home';
 import Account from '../features/account/Account';
+import Cart from '../features/cart/Cart';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { authRequest } from '../reducers/authSlice';
@@ -29,6 +30,9 @@ export default function App() {
           </Route>
           <Route path="/account">
             <Account />
+          </Route>
+          <Route path="/cart">
+            <Cart />
           </Route>
           <Route path="/">
             <Home />
