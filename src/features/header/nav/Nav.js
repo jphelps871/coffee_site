@@ -24,9 +24,10 @@ export default function Nav() {
 
 				{/* LOGOUT / SIGN UP */}
 				{loggedIn ? (
-					<li onClick={() => dispatch(logout())}>
-						logout
-						{/* <a onClick={() => dispatch(logout())}>logout</a> */}
+					<li>
+						<Link onClick={() => dispatch(logout())} to="/">
+							logout
+						</Link>
 					</li>
 				) : (
 					<li>
