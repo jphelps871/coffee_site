@@ -1,0 +1,41 @@
+@import '../../../index.scss';
+
+.product {
+	max-width: 350px;
+	display: flex;
+
+	button {
+		background-color: $brown;
+		color: #ffffff;
+		width: 100%;
+		margin-top: auto;
+	}
+
+	.product-body {
+		padding: 1em;
+		& > *:not(:last-child) {
+			margin-bottom: 1em;
+		}
+	}
+
+	.product-img {
+		padding: 1em;
+	}
+
+	.product-header {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.add-quantity-product {
+		label {
+			margin-right: 1em;
+		}
+	}
+}
+
+@media (max-width: 827px) {
+	.product {
+		max-width: 100%;
+	}
+}
