@@ -23,13 +23,12 @@ export default function Products() {
 
 	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(true);
-
 	if (loading) return <p>Loading</p>;
 
 	return (
 		<>
 			{products.map(item => (
-				<div className="product">
+				<div key={item.product_id} className="product">
 					<div className="product-img">IMG</div>
 					<div className="product-body">
 						<div className="product-header">
