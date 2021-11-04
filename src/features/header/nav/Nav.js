@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import QuantityNum from '../../../common/QuantityNum/QuantityNum';
 import cart from '../assets/cart.svg';
 import './nav.scss';
 
@@ -36,8 +37,9 @@ export default function Nav() {
 				)}
 
 				{/* CART */}
-				<li>
+				<li style={{ position: 'relative' }}>
 					<Link to="/cart">
+						<QuantityNum />
 						<img className="icon" src={cart} alt="cart-icon" />
 					</Link>
 				</li>
